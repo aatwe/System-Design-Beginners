@@ -1,0 +1,80 @@
+a) Class Diagram = what state + What behaviour
+What is state? Input Data that object needs to perform behaviours
+
+++++++++++CLASS DIAGRAM AS BELOW+++++++++++++++++++++++++++
+
+
+
+b.1) What video contains?
+Class Video
+	ID	 
+	frames[]
+	Metadata
+	getFrame()
+
+
+b.2) What user contains?
+
+Class User
+	ID
+	Name
+	Email
+
+	getID()
+
+
+b.3) What watchedVideos class contains
+
+Class Watched/Video
+
+	ID
+	Video_ID
+	User_ID
+	seek_timestamp
+	
+	getID()
+
+
+b.4) What VIdeoConsumingService contains
+	
+	WatchedVideo[] watchedVideos
+
+	getVideoFrame(user,video,ts)
+	seek(user,video)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Note: Use-case diagram and Class diagram are sufficient
+But when complex interaction --> sequence of action diagram
+Sequence Diagram	 
+c)  
+
+c.1) User Timeline
+
+
+c.2) Video consuming Service timeline
+
+
+c.2) Video Service timeline		//provides api to consume next frame
+//why not sending directly VST? authentication happens at VCS
+//Similar to a TCP connection
+	c.2.1) handshake	//get initial info of connection
+	c.2.2) constant pinging
+
+Note: we can avoid going into VCS //lets just put authentication somewhere else (User side only maybe)
+
+c.1)						    c.2)					     c.3) 
+User						    VCS					      VST
+    seek(user,video)
+|______--->_________________________|_____________________________|
+|   timestamp
+|_____<---__________________________|
+|
+|videoFrame(user,video,timestamp)--->___|
+|
+|						     |_VideoFrame(timestamp)______-->|
+|						     |
+|						     |<-------Frame__________________|
+|						     |						|
+|	<---------Frame			     |						|
+|videoFrame(user,video,timestamp)--->___|_VideoFrame(timestamp)______-->|
+|						     |<-------Frame__________________|

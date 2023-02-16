@@ -1,0 +1,67 @@
+How to think design?
+
+
+
+a) Customer (Downloadable etc Client)----------->   Server (Different part of world)  ----------> Database (Different part of world) 
+
+	//Customer define problems		//Fullfill problems using API at server	 	//store data at server in DB  --> map to tables
+
+
+
+
+
+
+
+//what kind of data to store				 //expose api
+b) Database 			--------> 	Server		  --------->		Customers
+
+
+video
+id    name	size data
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Preferred a)
+
+What device customer using? cant assume
+	Instead cater multiple devices	//frontend UI design problem
+
+
+//what System Design will handle? Distribution System (backend)
+					 API interaction (Frontend)
+					Cache data on frontend (Front end)
+
+
+//What we focus on? Backend 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+a) Clients ----------->   Server (Different part of world)  ----------> Database (Different part of world) 
+
+a.1) Clients query on server in realtime
+a.2) What server has? APIs : 
+	What API
+	//getVideo(id,device,offset)			//id: what id of video, what device type, what offset to start from
+
+	Returns what? Frame		//10 second long frame	
+		
+
+	//note how getVideo() means getting entire video while we getting frames //API Design bad
+
+	videoFrame(id,device,offset)	
+
+
+
+	//If using REST Protocol --> GET and PUT is defined in request itself
+	//vimeo/youtube has similar API
+	
+
+a.3) Post a comment
+	How to Post comment (Note: REST Post we are using)		//will add data to server
+
+	POST comment(id,data,author,video_id)	//note: dont care which device coming from, we wont change response based on that
+	
+ 
+Server side capacilities are defined
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//we havent yet discussed about network protocols we will use to communicate
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

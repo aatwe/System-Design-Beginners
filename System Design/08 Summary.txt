@@ -1,0 +1,33 @@
+In startups we might not have product requirement document
+
+Have to just talk to customers
+
+
+
+1) Define requirements as abstract data objects
+
+2) Manipulate and query these objects using apis on server
+
+3) Store data representations on Db
+
+4) What we need to make system possible? 
+	Protocols,
+	DB Solutions	
+	Intermediate Design pattern solutions (Load balancers/ Message Queues)
+		//design patterns are converted into tools by companies
+		Ex Redis: Caches, Load balancers, 
+		    AWS
+
+
+	//We will use these well built well tested solutions
+		
+
+5) Think interaction of tools and services to meet requirements
+		How to show video to users? Transform,convert,
+
+		How to stream video to server/ or use CDN solution?	//even if server is close, dont want server to handle all load to static content
+										//Give load to other CDNs (ISP Tied : check how netflix uses CDNs)
+
+		How to stream video to client?
+
+	

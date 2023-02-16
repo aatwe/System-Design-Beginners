@@ -1,0 +1,94 @@
+Scenario: You join Hotstar, Youtube , Zoom
+
+How broadcasting of videos to millions of people? Event X
+
+
+
+1) Define requirement from User's perspective
+	Company --> Product management document (Take User feedback + data)
+
+
+2) Pick most important features + reduce them to data definitions
+	Ex in live streaming systems:
+		//Most important features
+
+		2.1) Watch stream live (HD or not secondary)
+			Make sure server doesnt go down, bandwidth is sufficient
+			
+
+		2.2) Should be able to like
+	
+		//Data definitons of features
+		2.1) How to make sure server doesnt go down
+
+
+		2.2) How to like?
+			get like iD
+			get user id
+			store timestamp
+
+
+		2.3) How to comment?
+			map to object
+			give commend an id
+		 	get who typed comment
+			when comment was created
+			thread in which posted
+
+
+3) Map Definitions --> map to objects  --> map to Database 
+
+//now we have defined what data we need to store
+/What endpoints needed?
+	Why endpoint needed? To manipulate / query data 
+
+
+Ex Read comments
+HTTP/FTP/etc API or Endpoints (Method)
+
+Why need API?
+Send signal to our server --> server responds with data needed
+
+What server does:
+	encapsulates data
+	defines endpoints / apis : for external users to query/manipulate data
+	
+	//Set this up for every feature
++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+
+We as engineer need to know the most important features
+
+Engineering requirements:
+	a) none Services should fail
+		how? multiple spread out servers
+			data duplication : for other servers to pick up load
+			partitioning: 50% users on server A, 50% users on server B
+	b) Extensibility
+		solutiion should be easy to change
+		ex 
+		Code: sends message to million users
+		If want to change tweak/add functionality to that code (for ex check if users have read messages)
+		How can i tweak?	
+
+		Problem
+		If code: is highly coupled with feature ---> if change in requirement --> lot of effort in redesigning and testing and deploying code again
+
+		Solution:
+		Make features extensible
+		Gather all experiences
+		Build better system --> expect it to scale + extend as requirements change
+		
+
+
+	c) Testing:
+		Once a system is designed in real world by Engineer
+		Have to test the design
+
+		How can we test?
+		c.1) Run requests : with common test cases
+		c.2) Check if requests have sensible flow in system
+		c.3) Use tools : load test design
+			have capacity estimation --> Check if design is feasible
+		
+	

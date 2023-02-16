@@ -1,0 +1,54 @@
+Requirements:
+
+a) Streaming Video
+b) Processing Video
+c) Broadcasting
+d) Failproof
+e) Advertisment show
+f) Allow reactions
+g)Show disclaimers/ News flashes
+h) Degreade video quality if low bandwidth
+i) Support multiple devices
+++++++++++++++++++++++++++++
+
+
+What is product requirement?
+
+a) Streaming video (Primary)
+
+
+
+Obejctive: Stream video
+
+How to stream video?
+
+a) Capture video from source (8K)
+b) Store video in server database
+c) Query video later (milliseconds after) Distribute to users
+
+
+//Important to keep it a black box
+//Users just have to hit API
+//Give users Clients  //Downloadable clients on Appstore  //Clients take care of API 
+//APIs have well defined signatures	
+						//What API?getVideo()			// gives object of type frames
+						//API signatures are similar to method signatures
+							//Difference: API: Queries through a network protocol (Not programming language)
+								//What type of network protocol? GRPC, http, FtTP
+								//What protocol does? defines how object of type frame will be sent from x to y
+											   defines how response will come back
+						//What is API Signature? unique signature generated for each API request
+						How generated?
+							//Create String-to-sign
+							//Hash with Private-API-Key	(HMAC-SHA256 OR HMAC-SHA1 Hashing Algorithm //Base64)
+ 						
+
+++++++++++++++++++++++++++++++++++++++++++++
+//What our system does till now?
+	Storing data	
+	Query data using APIs
+	Test the APIs: think failiure scenarios: --> what if database crashes, What if firewall on internet starts blocking API requests
+							What if one service / program we have written misbehaves (Bug, someone entered system and changed code)	
+			 think feature requests:  -->  musician playing in event should be able to talk to some audience(Display it to musician live --> broadcast 2 parties to millions of users )
+
+Objective: Design Live Streaming application	

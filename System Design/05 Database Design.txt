@@ -1,0 +1,35 @@
+
+a.4) What at database?
+	What kind of data to store to satisfy APIs?
+ 		Frame
+		Commens	
+
+	What database? SQL	
+
+	Comment Table
+			//foreign key
+	__________________
+vidid	id   |	data   |  author
+10	1	Hey!	   1	//Cricket match
+11	2			//Musical event
+	__________________ 
+	User table
+	id   |	author
+	1	Jignes
+	__________________
+	Video Table
+	id   |	Data
+	10			//Cricket match
+	__________________
+
+For ex Objective : How to display all comments for a video on frontend?
+
+get all comments from 	comment table for video 10
+get user data from 		User table for user 1, get his name
+get video data  from 	video table for vid 10
+
+
+a.5)	What achieved? Satisfied requirement of posting  comment and video on front end
+//Our Systm can answer queries
+How to make the communication happen? Don know
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

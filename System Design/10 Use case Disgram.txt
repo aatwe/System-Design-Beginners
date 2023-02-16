@@ -1,0 +1,56 @@
+Whatuse cases for end user		//Can have many use cases
+
+	3 people we have
+
+a)	Customer: who Consumes the video		//priority1
+		What can customer do?
+		a.1)	Play a video from timestamp	
+				
+			a.1.1)	API	//play(user,video,ts)
+				//What it does? sends back time stamp
+				
+				//One more actor 	Video Consuming Service 	//decidsehow much video to send
+				//who handles this? network protocol  // adaptive bitrate protocol // http dash
+				//hwo bandwidth decided? device + network requirements
+
+				//How HTTP Dash works?
+
+ 
+		a.2) 	go to a  priviosuly visited video and playfrom same timestamp
+			//API seek(user,video)
+			//What it does? sends back time stamp
+			
+			a.2.1) 		Video Consuming Service
+		
+ 		a.3)	view max quality allowed
+
+			//API : HTTP Dash		
+				//Linked with HTTP Dash
+				//One more actor 	Video Consuming Service	//decidsehow much video to send
+				//who handles this? network protocol  // adaptive bitrate protocol // http dash
+				//hwo bandwidth decided? device + network requirements
+
+				//How HTTP Dash works?
+			a.3.1) Video Consuming Service
+
+		a.4)	non stop playing when watching (Given bandwidth isok)
+			API: ///getVideoFrame(user,video, ts)
+			//What it does? sends back VIdeo frame
+
+			a.4.1) Video Consuming service
+
+b)	Admin : adds videos to DB
+
+c)	Videographer: can upload videos
+
+
+
+When designing api: think who is using it, what is it used for
+
+//play(user,video,ts)  and getVideoFrame(user,video, ts) are very similar
+
+Solution: Cut down 1 and replace
+
+Notice: engineering side similar, but business/analytics side very different use cases	
+
+

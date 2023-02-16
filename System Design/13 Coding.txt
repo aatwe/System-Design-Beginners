@@ -1,0 +1,119 @@
+Just write whatever you thought through in diagrams
+//FrameTime can be different also: some frames v High quality -> lots of movement -> frames time 2 seconds long
+		some frames not much happening			   -> les movement       -> frame time 10-15 second
+	//Hence keep it dynamic and dependent on Frame class property
+
+	//earlier we thought: frames[i].timestamp + Frame.frameTime > timestamp;
+	//changed it to : frames[i].endTimestamp > timestamp;
+
+	//make it object property instead of class property
+
+	//also class Frame earlier had : int Timestamp; ---> change it to int startTimestamp;
+	//Better Engineer //not coder
+
+
+//Video = id, array of frames, jsonMetaData
+
+class Video {
+
+
+String id;
+Frame[] frames;
+String jsonMetaData;
+
+public Frame	getFrame(int timestamp){
+	for(int i=0; i<frames.length; i++){
+		if(frames[i].startTimestamp <= timestamp &&
+		frames[i].endTimestamp > timestamp;
+		return frames[i];
+	)
+	}
+	throw new IndexOutOfBoundsException();		//What if dont get frame
+	
+
+}
+}
+
+
+
+
+//Frame = array of bytes, timestamp
+
+class Frame {
+public static int frameTime = 10;
+bytel] bytes;
+int startTimestamp;
+int endTimestamp;
+
+}
+
+
+//
+
+class User {
+String id;
+String name;
+String email;
+
+
+public String getId() {
+	return id;
+}
+
+
+
+class WatchedVIdeo {	//what id of action, what videoId , What userId, what seekTime, how to get seekTime? getseekTime()
+String id;			//The API that have REST? have keyword get. Objects in API can have a get() of their own
+String videoId;
+String userId;
+
+int seekTime;
+
+public int getSeekTime(){
+	return seekTimefl
+}
+}
+
+
+public class VideoConsumingService {
+
+private Database database;		//Database object
+
+public int seekiime($tring userId, String videoId){			//Seektime had a user id, videoID
+	WatchedVideo watchedVideo = database.getwatchedVid80(UserId, videoId);	//database call
+	return watchedVideo.getSeekTime();				//return the seekTime
+}
+
+
+class VideoService {		//Videos are stored in file system
+	private FileSystem fileSystem;
+	
+
+	///public method that will return a frame	//How? with videoId and timestamp  
+	public Frame getFrame(String videoId, int timestamp) {
+		//how interaction will happen? get video from File system
+		
+		Video video = fileSystem.getVideo(videoId)
+
+		//After we get the video -> return frame corresponding to timestamp
+		return video.getFrame(timestamp)
+
+}
+
+class FileSystem  {		
+	//once we get the video --> return the frame
+
+	public Video getVideo(String videold) {
+	return null;
+
+	}
+
+}
+
+
+class Database {
+
+	public WatchedVideo getWatchedVideo (String userId, String videoId) {
+		return null;
+	}
+}

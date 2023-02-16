@@ -1,0 +1,81 @@
+Implementation details:
+
+a) Client
+
+	a.1) Different API --> Different behaviour
+
+	a.1.1) //Comment API	dont need continious updates on comment	
+		//Different network protocols --> HTTP
+
+			//HTTP gives stateless server, no need to store any info while handling request,
+
+				//What is stateless server? has no idea where you are from. what you are, ----> Define everything in request
+		//Basically everything will be define din client itself	
+		
+	a.1.2) ///Video Frame API 	need to immediately update to next video frame	//Update every 5 seconds
+		//Different network protocols
+	
+			
+			//Have to consider: What if mobile device/poor bandwidth
+						What kidn of video transmitting? live streaming etc?
+						What happened previously doesnt matter! if missed a packet let go , next feed is important
+						
+		Reliable-> TCP back Protocol
+
+		Realtime efficient protocol -> UTB Backed protocol
+
+		What we use? Web RTC: peer to peer	//What is peer to peer: server to client  
+								//What is client to server expectation: //Only client can request server 
+								
+		
+	---------------------What we learnt? importance of network protocols for designing systems------------------------
+	
+
+	a.2) Discuss approaches and how stateless helps
+
+	Forex
+
+Approach 1
+	Client asks Server for 10 sec video after 10 min		//Chunk1 -->Server taking time to respond
+	Client asks again Server for 10 sec video after 10min			Server gives same response again
+
+	_________DIFFERENCE BETWEEN STATEFUL AND STATELESS PROTOCOL_____________
+	//HTTP Is stateless
+	//Keep protocol statelss, store data on server --> database 	//inc ase server crashes	
+	//Also can add new servers without issue (it will give context)
+
+
+Approach 2
+	Client asks Server for next 10 sec 			//Chunk1 -->Server looks where user is, finds next 10 sec accordingly //Sends 10:00 to 10:10
+	Client asks again Server for 10 sec video after 10min			Server gives response again			   //Sends 10:10 to 10:20
+
+
+	//What conclusion? Appraoch2 Overall more network efficient
+			why efficient? no duplicate requests from client
+			what advantage? client code more simple
+					      client doesnt have to know what part of video it is watching
+					      Server will figure out with context
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+	a.3) Server side considerations
+		How will we talk to server?
+		How will we talk to DB?	MySQL/  Postgres 	//They define how will we talk to database
+						elastic search //HTTP based protocol 							
+						Cassandra / Amazon Dynamo DB / POstgres/MySQL : Protocols are well defined for all
+
+
+		What database solution to use?	
+			MySQL: Expensive + slow
+			
+
+		Where to store video data? file system
+		well known file system solution? HDFS, Vimeo hosting , AmazonS3	//mention in system design requirement
+
+			//What features about S3? easy to query, can store large files
+			//video file is static file --> we need low cost
+
+
+		Where to store user data? SQL	  :  MySQL / Postgres
+		Where to store comment data? SQL:  NoSQL 	//scalables //for complex data //key-value

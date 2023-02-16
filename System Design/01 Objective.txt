@@ -1,0 +1,36 @@
+Objective: 
+
+Learn
+a) What Engineering Design patterns and Principles are used to design large scale Distributed systems
+
+	What are large scale distributed systems:
+		what is large scale product? High usage/ Compute intensive data  : ex GMaps,lots of data, lots of use, lots of updates, lots of expectations
+		What is distributed systems? Server/ Code is distributed all around the world
+				Server1: India, Server2:USA etc
+				if 1 server crashes, other server can take load + Quick results
+
+b) Use the principles to code live streaming video app
+
+
+
+
+What companies with these solutions expect?
+	System Design: Large scale distributed systems
+	
+	What engineering teams work on? Design patterns
+	Ex Celecrity posting something on social media
+
+	Ex bradd pitt posting on Linkedin
+		Bradd pitt posting on Youtube
+
+	Objective: Notify followers quickly,+ put less load ons service 
+	How to solve? using Design pattern
+	Solution: Publisher Subscriber Model
+	Bradd Pitt: Publisher
+	Event subscribed to millions of followers
+	Decides pace of sending information ---> keeps server load low
+	Makes sure all subscriber gets 
+
+
+What job of Engineer? Take design pattern --> Convert them into solutions
+	Business Requirement ---> Technical Solution

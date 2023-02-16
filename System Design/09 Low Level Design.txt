@@ -1,0 +1,37 @@
+What High level design discussed: How different components of entire system interact using network calls and APIs
+	What systems own? business data related to service
+
+
+We lose view of:
+How User interacts with gateways : 
+
+How gateways sending requests to returns services	
+
+How return services interact with Db
+
+
+//We will work on chunks and code it down
+
+
+Objective: Figure out:
+	a) How user fetches video
+	b) How user views video
+	c) How user can fetch more of video until video ends
+
+
+
+What developer has to think? Actions
+
+
+a) What actions user needs to perform
+a.1) Play video from timestamp x
+a.2) pause video
+a.3) If you close and again login -> resume at same place, how? cache video somewhere
+	//dont have to buffer everything meanwhile
+	//dont have to cache all videos, cache only some videos
+
+a.4) Tackle concurrency, latency, throughput issues
+	throughput max : dont want how quickly, but continous function of pipeline
+
+	//Context switch : if video comes --> consider important
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

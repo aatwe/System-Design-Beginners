@@ -1,0 +1,75 @@
+What we know now?
+
+We have a system:
+a) 
+	how customers will be accessing API
+	how API will access data in DB 	
+		who fills data in DB? Customers or external service(HD Camera recording live)		//camera is 3rd party and persisting to DB
+				//What protocol? RTMP (Real Time Media protocol : we dont lose data)
+		
+		//Set up high bandwidth network here	 
+
+	
+	How to get this raw video data from DB --> convert to --> serve customers (480p,720p etcc)?
+
+	Transformation service : convert to different resolutions	//defined in product requirement document
+		
+
+b) How to convert Raw video to resolutons
+
+	b.1) Break video into segments
+
+	b.2) different programs for different resolutions
+
+	b.3) Define what format device reads video in	
+		Android: Apple :
+		ex h.264
+
+		//can have own efficient format : for ex Netflix has
+
+
+
+c) 
+	Use Map Reduce Design pattern:
+		c.1) Take a video
+		c.2) Split video into seconds
+		c.3) Send video to different servers
+		c.4) get different resolution outputs
+		c.5) Again send to different servers -> compress
+	//Any server that is free will pick up the task and distribute it
+		c.6) Store 3 different downloads in DB
+
+
+d)  Server is exposing APIs
+	When we query data from DB using protocol
+
+	What is webRTC good for? video conferences
+	Why good? multiple streaming video together
+
+	Our scenario: is broadcast, not conference: 
+	What protocol to use? 
+		1) MPEG -Dash	(MPEG Dynamic Adaptive streaming over HTTP)		//Dash handles converting quality automatically
+		2) HLS : ios/mac
+
+		
+e)  What data to store on server?
+No data we want
+We want stateless
+But somethings that we keepa are:
+
+	e.1)  cache last 10 min of video on server
+			//can get from cache instead of making network call from DB
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Since we have lot of users : this planning will help
+
+Use CDN Solutions: Fault tolerance, performance		//Content Delivery Networks
+	What they do? persist static data
+			  pull static data from client
+			
+	Challenges with CDN? Authentication(not everyone should see this data) (should CDN do for you or your write code and host on CDN)
+
+
